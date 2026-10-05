@@ -2,264 +2,61 @@
   {
     "id": "paracetamol",
     "name": "Paracetamol",
-    "genericName": "Acetaminophen",
-    "category": "Pain Relief & Fever",
-    "prescriptionRequired": false,
-    "commonBrands": ["Dolo 650", "Crocin", "Calpol", "Tylenol"],
-    "summary": "A common analgesic and antipyretic medicine used to relieve mild to moderate pain and reduce fever.",
-    "uses": [
-      "Fever and chills",
-      "Headache and body ache",
-      "Dental pain",
-      "Muscle and joint aches"
-    ],
-    "dosage": "Adults: 500mg to 650mg every 4 to 6 hours as needed. Do not exceed 4,000mg in 24 hours.",
-    "sideEffects": [
-      "Rare when taken at recommended doses",
-      "Nausea or stomach upset in sensitive individuals",
-      "Severe liver toxicity in cases of overdose"
-    ],
-    "precautions": [
-      "Avoid alcohol consumption while taking paracetamol to prevent liver strain",
-      "Do not combine with other medicines containing paracetamol/acetaminophen",
-      "Consult a doctor if fever persists for more than 3 consecutive days"
-    ],
-    "howItWorks": "Inhibits the production of prostaglandins in the central nervous system, reducing the sensation of pain and lowering the brain's temperature set-point.",
-    "relatedMedicines": ["ibuprofen", "cetirizine"]
+    "category": "Pain & Fever",
+    "uses": "Fever, headache, body aches, mild to moderate pain",
+    "dosage": "500mg-650mg every 4-6 hours. Max 4000mg/day",
+    "sideEffects": "Rare; nausea or liver strain in heavy overdose",
+    "brands": "Dolo 650, Crocin, Calpol",
+    "related": ["Cetirizine", "ORS"]
   },
   {
     "id": "sunscreen",
-    "name": "Sunscreen (SPF 50+ PA++++)",
-    "genericName": "Broad Spectrum UV Filters (Zinc Oxide, Titanium Dioxide, Bemotrizinol)",
-    "category": "Skincare & Protection",
-    "prescriptionRequired": false,
-    "commonBrands": ["Neutrogena Ultra Sheer", "Minimalist SPF 50", "La Roche-Posay Anthelios", "Derma Co"],
-    "summary": "A topical photoprotective product that absorbs or reflects sunlight ultraviolet (UVA/UVB) radiation.",
-    "uses": [
-      "Prevention of sunburn and UV erythema",
-      "Protection against premature photoaging, wrinkles, and dark spots",
-      "Reduction of skin cancer risk (melanoma and carcinomas)"
-    ],
-    "dosage": "Apply approximately 2 finger-lengths generously to face and neck 15-20 minutes before sun exposure. Reapply every 2-3 hours.",
-    "sideEffects": [
-      "Transient mild stinging around eyes",
-      "Occasional contact dermatitis or breakout if comedogenic"
-    ],
-    "precautions": [
-      "Reapply after sweating heavily or swimming",
-      "Pair with protective clothing and sunglasses during peak UV hours (10 AM - 4 PM)",
-      "Patch test before initial use if prone to allergic reactions"
-    ],
-    "howItWorks": "Forms a microscopic protective shield using physical blockers to deflect rays or chemical filters that absorb high-energy UV photons and convert them into harmless heat.",
-    "relatedMedicines": ["niacinamide", "salicylic-acid"]
+    "name": "Sunscreen (SPF 50)",
+    "category": "Skincare",
+    "uses": "Protection against UV rays, prevents tanning & sunburn",
+    "dosage": "Apply 2 finger lengths on face & neck 15 mins before sun",
+    "sideEffects": "Mild eye stinging or breakouts in oily skin",
+    "brands": "Neutrogena, Minimalist, Derma Co",
+    "related": ["Niacinamide", "Salicylic Acid"]
   },
   {
     "id": "salicylic-acid",
     "name": "Salicylic Acid (2%)",
-    "genericName": "Beta-Hydroxy Acid (BHA)",
-    "category": "Dermatology & Acne Care",
-    "prescriptionRequired": false,
-    "commonBrands": ["Sebogel", "The Ordinary Salicylic Acid 2%", "Minimalist 2% BHA", "Paula's Choice 2% BHA"],
-    "summary": "An oil-soluble beta hydroxy acid that deeply penetrates pores to exfoliate dead skin cells and clear trapped sebum.",
-    "uses": [
-      "Acne vulgaris, whiteheads, and blackheads",
-      "Enlarged pores and excess sebum regulation",
-      "Mild keratosis pilaris and texture refinement"
-    ],
-    "dosage": "Apply 2-3 drops to cleansed, dry skin once every other evening initially, increasing to once daily as tolerated.",
-    "sideEffects": [
-      "Mild skin dryness or flaking",
-      "Temporary tingling or mild erythema",
-      "Potential initial skin purging during weeks 1-3"
-    ],
-    "precautions": [
-      "Always follow with sunscreen during daytime as exfoliation increases photosensitivity",
-      "Avoid combining in the same routine with strong retinoids or direct vitamin C if skin is sensitive",
-      "Do not use if allergic to aspirin or other salicylates"
-    ],
-    "howItWorks": "Exerts keratolytic action by dissolving intercellular desmosomes that glue dead skin cells together, penetrating oily follicles to dissolve debris.",
-    "relatedMedicines": ["niacinamide", "sunscreen"]
+    "category": "Skincare",
+    "uses": "Treats acne, blackheads, whiteheads, unclogs pores",
+    "dosage": "2-3 drops on clean dry face at night, 2-3 times/week",
+    "sideEffects": "Mild dryness, peeling, or tingling sensation",
+    "brands": "The Ordinary, Minimalist, Sebogel",
+    "related": ["Sunscreen", "Niacinamide"]
   },
   {
     "id": "ors",
     "name": "ORS (Oral Rehydration Salts)",
-    "genericName": "Sodium Chloride, Potassium Chloride, Sodium Citrate & Dextrose",
-    "category": "Hydration & Electrolytes",
-    "prescriptionRequired": false,
-    "commonBrands": ["Electral", "W.H.O. ORS", "Enerzal", "Prolyte"],
-    "summary": "A balanced electrolyte-glucose formulation recommended by the WHO to prevent and treat dehydration caused by illness.",
-    "uses": [
-      "Dehydration resulting from acute diarrhea and vomiting",
-      "Heat exhaustion and heavy sweating after intense exertion",
-      "Restoration of fluid and electrolyte equilibrium in viral illnesses"
-    ],
-    "dosage": "Dissolve the standard packet (21.8g) into exactly 1 litre of clean drinking water. Sip in small quantities frequently.",
-    "sideEffects": [
-      "Extremely safe with no common side effects when diluted accurately in the prescribed water volume"
-    ],
-    "precautions": [
-      "Do not add additional sugar, milk, or fruit juices to the rehydration mixture",
-      "Discard any reconstituted solution that has not been consumed within 24 hours",
-      "Patients with severe renal impairment should consume only under doctor supervision"
-    ],
-    "howItWorks": "Leverages the sodium-glucose cotransporter (SGLT1) in the intestinal mucosa, actively pulling water into the bloodstream even during gastrointestinal inflammation.",
-    "relatedMedicines": ["paracetamol", "omeprazole"]
+    "category": "Hydration",
+    "uses": "Dehydration due to diarrhea, vomiting, or heavy sweating",
+    "dosage": "Dissolve 1 packet in 1 litre of clean drinking water",
+    "sideEffects": "None when diluted in correct water quantity",
+    "brands": "Electral, W.H.O. ORS, Enerzal",
+    "related": ["Paracetamol"]
   },
   {
     "id": "niacinamide",
-    "name": "Niacinamide (5% - 10%)",
-    "genericName": "Nicotinamide (Vitamin B3)",
-    "category": "Skincare & Protection",
-    "prescriptionRequired": false,
-    "commonBrands": ["The Ordinary Niacinamide 10%", "Minimalist 10% Niacinamide", "Plum 10% Niacinamide", "CeraVe PM"],
-    "summary": "A potent water-soluble form of Vitamin B3 that fortifies skin barrier function, calms redness, and evens skin tone.",
-    "uses": [
-      "Fading post-acne blemishes and hyperpigmentation",
-      "Strengthening the lipid barrier and reducing transepidermal water loss",
-      "Regulating sebum output and soothing inflammatory redness"
-    ],
-    "dosage": "Dispense 2-3 drops onto clean skin morning and evening before heavier moisturizers.",
-    "sideEffects": [
-      "Rare mild flushing or sensitivity when starting with higher (10%) concentrations"
-    ],
-    "precautions": [
-      "Begin with a patch test on forearm before facial application",
-      "If burning occurs, dilute with a simple hyaluronic acid or gentle moisturizer"
-    ],
-    "howItWorks": "Serves as a precursor to cofactors NAD and NADP, stimulating ceramide synthesis in the epidermis and inhibiting melanosome transfer from melanocytes to keratinocytes.",
-    "relatedMedicines": ["salicylic-acid", "sunscreen"]
+    "name": "Niacinamide (10%)",
+    "category": "Skincare",
+    "uses": "Fades dark spots, controls oil, strengthens skin barrier",
+    "dosage": "2-3 drops morning and evening before moisturizer",
+    "sideEffects": "Mild redness or flushing in sensitive skin",
+    "brands": "The Ordinary, Minimalist, Plum",
+    "related": ["Salicylic Acid", "Sunscreen"]
   },
   {
     "id": "cetirizine",
-    "name": "Cetirizine Hydrochloride",
-    "genericName": "Cetirizine 10mg",
-    "category": "Allergy & Cold",
-    "prescriptionRequired": false,
-    "commonBrands": ["Alerid", "Cetzine", "Zyrtec", "Okacet"],
-    "summary": "A second-generation non-sedating antihistamine used to relieve allergy symptoms such as sneezing, runny nose, and itching.",
-    "uses": [
-      "Allergic rhinitis (hay fever) and seasonal allergies",
-      "Chronic idiopathic urticaria (hives and itchy skin welts)",
-      "Allergic conjunctivitis (itchy, watery eyes)"
-    ],
-    "dosage": "Adults: One 10mg tablet once daily, preferably in the evening with or without food.",
-    "sideEffects": [
-      "Mild drowsiness in approximately 10% of users",
-      "Dry mouth",
-      "Fatigue or mild headache"
-    ],
-    "precautions": [
-      "Caution when driving or operating heavy machinery until personal tolerance is known",
-      "Avoid combining with alcohol or central nervous system sedatives"
-    ],
-    "howItWorks": "Selectively antagonizes peripheral H1 histamine receptors, preventing histamine released by mast cells from triggering allergic reactions.",
-    "relatedMedicines": ["paracetamol", "ibuprofen"]
-  },
-  {
-    "id": "ibuprofen",
-    "name": "Ibuprofen",
-    "genericName": "Ibuprofen 200mg / 400mg",
-    "category": "Pain Relief & Fever",
-    "prescriptionRequired": false,
-    "commonBrands": ["Brufen", "Advil", "Combiflam (with Paracetamol)", "Motrin"],
-    "summary": "A non-steroidal anti-inflammatory drug (NSAID) effective for inflammation, toothache, menstrual cramps, and headaches.",
-    "uses": [
-      "Musculoskeletal aches and sports sprains",
-      "Primary dysmenorrhea (menstrual cramps)",
-      "Dental discomfort and post-procedure swelling",
-      "Arthritic flare-ups"
-    ],
-    "dosage": "Adults: 200mg to 400mg every 6 to 8 hours with food or milk. Maximum OTC dosage: 1,200mg daily unless directed by physician.",
-    "sideEffects": [
-      "Stomach irritation, heartburn, or acid reflux",
-      "Mild nausea",
-      "Risk of gastric ulceration with prolonged unmonitored use"
-    ],
-    "precautions": [
-      "Always take with or immediately after food to protect stomach lining",
-      "Contraindicated in individuals with active peptic ulcers, severe asthma, or kidney disease",
-      "Do not combine with other NSAIDs (such as Aspirin or Naproxen)"
-    ],
-    "howItWorks": "Reversibly inhibits cyclooxygenase enzymes (COX-1 and COX-2), preventing the synthesis of pro-inflammatory prostaglandins.",
-    "relatedMedicines": ["paracetamol", "omeprazole"]
-  },
-  {
-    "id": "omeprazole",
-    "name": "Omeprazole",
-    "genericName": "Omeprazole 20mg",
-    "category": "Digestion & Acidity",
-    "prescriptionRequired": false,
-    "commonBrands": ["Omez", "Prilosec", "Ocid", "Omep"],
-    "summary": "A proton-pump inhibitor (PPI) that decreases the amount of acid produced by the stomach lining.",
-    "uses": [
-      "Gastroesophageal reflux disease (GERD) and chronic heartburn",
-      "Gastric and duodenal ulcers",
-      "Protection against NSAID-induced gastric erosions"
-    ],
-    "dosage": "20mg once daily taken 30 to 60 minutes before breakfast with a glass of water.",
-    "sideEffects": [
-      "Headache",
-      "Abdominal pain or flatulence",
-      "Mild diarrhea or constipation"
-    ],
-    "precautions": [
-      "Swallow capsule whole; do not chew or crush the enteric-coated micro-granules",
-      "Not intended for instant relief of acute heartburn (takes 1-4 days for peak effect)",
-      "Long-term use requires monitoring of Vitamin B12 and magnesium levels"
-    ],
-    "howItWorks": "Permanently binds to and suppresses the hydrogen-potassium ATPase enzyme system ('proton pump') of gastric parietal cells.",
-    "relatedMedicines": ["ors", "ibuprofen"]
-  },
-  {
-    "id": "vitamin-d3",
-    "name": "Vitamin D3 (Cholecalciferol)",
-    "genericName": "Cholecalciferol 60,000 IU / 1,000 IU",
-    "category": "Vitamins & Supplements",
-    "prescriptionRequired": false,
-    "commonBrands": ["Calcirol", "D-Rise", "Uprise-D3", "Tayo 60k"],
-    "summary": "A vital fat-soluble vitamin necessary for intestinal absorption of calcium, bone mineralization, and immune competence.",
-    "uses": [
-      "Treatment and prevention of Vitamin D deficiency",
-      "Support for bone density and prevention of osteomalacia",
-      "Immune function support and muscle health"
-    ],
-    "dosage": "Deficiency treatment: 60,000 IU once weekly for 8 weeks with a fatty meal. Maintenance: 1,000-2,000 IU daily or as advised.",
-    "sideEffects": [
-      "Very safe within normal dosing guidelines",
-      "Excessive mega-doses can cause hypercalcemia, thirst, or kidney stones"
-    ],
-    "precautions": [
-      "Consume with meals containing healthy dietary fats for optimal absorption",
-      "Check 25-hydroxy Vitamin D serum levels before and after long therapy cycles"
-    ],
-    "howItWorks": "Hydroxylated in the liver and kidneys to active calcitriol, which binds to vitamin D nuclear receptors to upregulate calcium-binding transport proteins.",
-    "relatedMedicines": ["paracetamol", "ors"]
-  },
-  {
-    "id": "azithromycin",
-    "name": "Azithromycin",
-    "genericName": "Azithromycin 500mg",
-    "category": "Antibiotics",
-    "prescriptionRequired": true,
-    "commonBrands": ["Azithral", "Zithromax", "Azee", "Zady"],
-    "summary": "A broad-spectrum macrolide antibiotic used to treat bacterial infections of the respiratory tract, ear, and skin.",
-    "uses": [
-      "Bacterial sinusitis, pharyngitis, and tonsillitis",
-      "Community-acquired pneumonia and bronchitis",
-      "Bacterial ear infections and skin infections"
-    ],
-    "dosage": "Typically 500mg once daily for 3 to 5 days, taken strictly as prescribed by a licensed healthcare provider.",
-    "sideEffects": [
-      "Mild diarrhea or stomach cramps",
-      "Nausea and transient vomiting",
-      "Temporary alteration in taste"
-    ],
-    "precautions": [
-      "Prescription strictly required — inappropriate use promotes bacterial resistance",
-      "Complete the full prescribed course even if symptoms resolve early",
-      "Inform doctor if you have known cardiac arrhythmia (QT prolongation) or hepatic illness"
-    ],
-    "howItWorks": "Reversibly binds to the 50S ribosomal subunit of susceptible microorganisms, inhibiting transpeptidation and protein synthesis.",
-    "relatedMedicines": ["paracetamol", "cetirizine"]
+    "name": "Cetirizine (10mg)",
+    "category": "Allergy",
+    "uses": "Runny nose, sneezing, itching, hives, watery eyes",
+    "dosage": "1 tablet (10mg) once daily, preferably at night",
+    "sideEffects": "Mild drowsiness, dry mouth, tiredness",
+    "brands": "Alerid, Cetzine, Okacet",
+    "related": ["Paracetamol"]
   }
 ]

@@ -1,156 +1,162 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState } from 'react';
 import medicinesData from './data/medicines.json';
-import Navbar from './components/Navbar';
-import SearchBar from './components/SearchBar';
-import CategoryFilter from './components/CategoryFilter';
-import MedicineCard from './components/MedicineCard';
-import MedicineDetailModal from './components/MedicineDetailModal';
-import EmptyState from './components/EmptyState';
 import './App.css';
 
-function App() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearch, setDebouncedSearch] = useState('');
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [selectedMedicine, setSelectedMedicine] = useState(null);
+const QUICK_SEARCHES = ['Paracetamol', 'Sunscreen', 'Salicylic Acid', 'ORS', 'Niacinamide', 'Cetirizine'];
 
-  // Optimization: Debounce search input (150ms) to avoid unnecessary re-filtering on rapid keypresses
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearch(searchTerm);
-    }, 150);
+export default function App() {
+  const [search, setSearch] = useState('');
+  const [selected, setSelected] = useState(null);
 
-    return () => clearTimeout(timer);
-  }, [searchTerm]);
-
-  // Extract unique categories for filter tabs
-  const categories = useMemo(() => {
-    const cats = Array.from(new Set(medicinesData.map((item) => item.category)));
-    return cats.sort();
-  }, []);
-
-  // Filter medicines based on active category and debounced query
-  const filteredMedicines = useMemo(() => {
-    const query = debouncedSearch.trim().toLowerCase();
-
-    return medicinesData.filter((medicine) => {
-      // 1. Category match
-      if (activeCategory !== 'All' && medicine.category !== activeCategory) {
-        return false;
-      }
-
-      // If no search query, match all within the category
-      if (!query) {
-        return true;
-      }
-
-      // 2. Search query multi-field match
-      const nameMatch = medicine.name.toLowerCase().includes(query);
-      const genericMatch = medicine.genericName.toLowerCase().includes(query);
-      const categoryMatch = medicine.category.toLowerCase().includes(query);
-      const summaryMatch = medicine.summary.toLowerCase().includes(query);
-      const usesMatch = medicine.uses.some((use) => use.toLowerCase().includes(query));
-      const brandsMatch = medicine.commonBrands.some((brand) => brand.toLowerCase().includes(query));
-
-      return (
-        nameMatch ||
-        genericMatch ||
-        categoryMatch ||
-        summaryMatch ||
-        usesMatch ||
-        brandsMatch
-      );
-    });
-  }, [debouncedSearch, activeCategory]);
-
-  // Handlers
-  const handleReset = () => {
-    setSearchTerm('');
-    setDebouncedSearch('');
-    setActiveCategory('All');
-  };
-
-  const handleSelectSuggestion = (suggestion) => {
-    setSearchTerm(suggestion);
-    setActiveCategory('All');
-  };
-
-  const handleSelectRelated = (relatedMed) => {
-    setSelectedMedicine(relatedMed);
-  };
+  // Filter medicines matching name, category, uses, or brands
+  const filtered = medicinesData.filter((item) => {
+    const q = search.toLowerCase().trim();
+    if (!q) return true;
+    return (
+      item.name.toLowerCase().includes(q) ||
+      item.category.toLowerCase().includes(q) ||
+      item.uses.toLowerCase().includes(q) ||
+      item.brands.toLowerCase().includes(q)
+    );
+  });
 
   return (
-    <div className="app-container">
-      <Navbar totalCount={medicinesData.length} onReset={handleReset} />
+    <div className="app">
+      {/* Top Header */}
+      <header className="header">
+        <h1 className="logo" onClick={() => setSearch('')}>MediSearch</h1>
+        <span className="count-badge">{medicinesData.length} Medicines</span>
+      </header>
 
-      <main className="main-content">
-        {/* Centered Landing Search Section */}
-        <SearchBar
-          searchTerm={searchTerm}
-          onSearchChange={setSearchTerm}
-          onSelectSuggestion={handleSelectSuggestion}
-        />
+      {/* Hero Landing with Centered Search */}
+      <main className="main">
+        <section className="search-box">
+          <h2 className="title">Search General Medicines</h2>
+          <p className="subtitle">Find usage, dosage, side effects, and related medicines</p>
 
-        {/* Category Filter Pills */}
-        <CategoryFilter
-          categories={categories}
-          activeCategory={activeCategory}
-          onSelectCategory={setActiveCategory}
-        />
+          <div className="input-wrap">
+            <input
+              type="text"
+              placeholder="Search medicine (e.g. Paracetamol, Sunscreen, acne)..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="search-input"
+            />
+            {search && (
+              <button className="clear-btn" onClick={() => setSearch('')}>✕</button>
+            )}
+          </div>
 
-        {/* Results Bar */}
-        <div className="results-header-bar">
-          <span className="results-count">
-            Showing <strong>{filteredMedicines.length}</strong> of {medicinesData.length} medicines
-            {activeCategory !== 'All' ? ` in ${activeCategory}` : ''}
-            {debouncedSearch ? ` for "${debouncedSearch}"` : ''}
-          </span>
+          {/* Quick Click Suggestions */}
+          <div className="quick-tags">
+            <span>Quick search:</span>
+            {QUICK_SEARCHES.map((item) => (
+              <button
+                key={item}
+                className={`tag-btn ${search.toLowerCase() === item.toLowerCase() ? 'active' : ''}`}
+                onClick={() => setSearch(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </section>
 
-          {(searchTerm || activeCategory !== 'All') && (
-            <button type="button" className="reset-filter-btn" onClick={handleReset}>
-              Reset all filters
-            </button>
+        {/* Results Info */}
+        <div className="results-bar">
+          <span>Found <strong>{filtered.length}</strong> result{filtered.length !== 1 ? 's' : ''}</span>
+          {search && (
+            <button className="reset-link" onClick={() => setSearch('')}>Show all</button>
           )}
         </div>
 
-        {/* Medicines Grid or Empty State */}
-        {filteredMedicines.length > 0 ? (
-          <div className="medicine-grid">
-            {filteredMedicines.map((medicine) => (
-              <MedicineCard
-                key={medicine.id}
-                medicine={medicine}
-                onSelect={setSelectedMedicine}
-              />
+        {/* Cards Grid */}
+        {filtered.length > 0 ? (
+          <div className="grid">
+            {filtered.map((item) => (
+              <div key={item.id} className="card" onClick={() => setSelected(item)}>
+                <div className="card-header">
+                  <h3>{item.name}</h3>
+                  <span className="pill">{item.category}</span>
+                </div>
+                <p className="card-uses"><strong>Uses:</strong> {item.uses}</p>
+                <p className="card-brands"><strong>Brands:</strong> {item.brands}</p>
+                <button className="card-btn">View Details →</button>
+              </div>
             ))}
           </div>
         ) : (
-          <EmptyState
-            searchTerm={debouncedSearch}
-            activeCategory={activeCategory}
-            onReset={handleReset}
-          />
+          <div className="empty">
+            <p>No medicine found matching "{search}".</p>
+            <button className="tag-btn" onClick={() => setSearch('')}>Clear search</button>
+          </div>
         )}
       </main>
 
       {/* Medicine Details Modal */}
-      {selectedMedicine && (
-        <MedicineDetailModal
-          medicine={selectedMedicine}
-          onClose={() => setSelectedMedicine(null)}
-          allMedicines={medicinesData}
-          onSelectRelated={handleSelectRelated}
-        />
+      {selected && (
+        <div className="modal-overlay" onClick={() => setSelected(null)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <div>
+                <h2>{selected.name}</h2>
+                <span className="pill">{selected.category}</span>
+              </div>
+              <button className="close-btn" onClick={() => setSelected(null)}>✕</button>
+            </div>
+
+            <div className="modal-body">
+              <div className="info-row">
+                <strong>Key Uses:</strong>
+                <p>{selected.uses}</p>
+              </div>
+
+              <div className="info-row highlight">
+                <strong>Recommended Dosage:</strong>
+                <p>{selected.dosage}</p>
+              </div>
+
+              <div className="info-row">
+                <strong>Side Effects:</strong>
+                <p>{selected.sideEffects}</p>
+              </div>
+
+              <div className="info-row">
+                <strong>Common Brands:</strong>
+                <p>{selected.brands}</p>
+              </div>
+
+              {/* Related Medicines */}
+              <div className="info-row">
+                <strong>Related Medicines:</strong>
+                <div className="related-list">
+                  {selected.related.map((relName) => (
+                    <button
+                      key={relName}
+                      className="related-btn"
+                      onClick={() => {
+                        const next = medicinesData.find((m) => m.name.toLowerCase().includes(relName.toLowerCase()));
+                        if (next) setSelected(next);
+                      }}
+                    >
+                      {relName} →
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="modal-footer">
+              <button className="close-action" onClick={() => setSelected(null)}>Close</button>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Footer */}
-      <footer className="app-footer">
-        <p>
-          MediSearch &copy; {new Date().getFullYear()} &bull; Built for healthcare information transparency. Not a substitute for licensed medical consultation.
-        </p>
+      <footer className="footer">
+        <p>MediSearch &bull; Educational medicine guide for quick reference.</p>
       </footer>
     </div>
   );
 }
-
-export default App;
