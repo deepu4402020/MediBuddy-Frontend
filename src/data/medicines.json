@@ -6,7 +6,6 @@
     "uses": "Fever, headache, body aches, mild to moderate pain",
     "dosage": "500mg-650mg every 4-6 hours. Max 4000mg/day",
     "sideEffects": "Rare; nausea or liver strain in heavy overdose",
-    "brands": "Dolo 650, Crocin, Calpol",
     "related": ["Cetirizine", "ORS"]
   },
   {
@@ -16,7 +15,6 @@
     "uses": "Protection against UV rays, prevents tanning & sunburn",
     "dosage": "Apply 2 finger lengths on face & neck 15 mins before sun",
     "sideEffects": "Mild eye stinging or breakouts in oily skin",
-    "brands": "Neutrogena, Minimalist, Derma Co",
     "related": ["Niacinamide", "Salicylic Acid"]
   },
   {
@@ -26,7 +24,6 @@
     "uses": "Treats acne, blackheads, whiteheads, unclogs pores",
     "dosage": "2-3 drops on clean dry face at night, 2-3 times/week",
     "sideEffects": "Mild dryness, peeling, or tingling sensation",
-    "brands": "The Ordinary, Minimalist, Sebogel",
     "related": ["Sunscreen", "Niacinamide"]
   },
   {
@@ -36,7 +33,6 @@
     "uses": "Dehydration due to diarrhea, vomiting, or heavy sweating",
     "dosage": "Dissolve 1 packet in 1 litre of clean drinking water",
     "sideEffects": "None when diluted in correct water quantity",
-    "brands": "Electral, W.H.O. ORS, Enerzal",
     "related": ["Paracetamol"]
   },
   {
@@ -46,7 +42,6 @@
     "uses": "Fades dark spots, controls oil, strengthens skin barrier",
     "dosage": "2-3 drops morning and evening before moisturizer",
     "sideEffects": "Mild redness or flushing in sensitive skin",
-    "brands": "The Ordinary, Minimalist, Plum",
     "related": ["Salicylic Acid", "Sunscreen"]
   },
   {
@@ -56,7 +51,6 @@
     "uses": "Runny nose, sneezing, itching, hives, watery eyes",
     "dosage": "1 tablet (10mg) once daily, preferably at night",
     "sideEffects": "Mild drowsiness, dry mouth, tiredness",
-    "brands": "Alerid, Cetzine, Okacet",
     "related": ["Paracetamol"]
   }
 ]

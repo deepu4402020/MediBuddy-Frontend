@@ -8,15 +8,13 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [selected, setSelected] = useState(null);
 
-  // Filter medicines matching name, category, uses, or brands
   const filtered = medicinesData.filter((item) => {
     const q = search.toLowerCase().trim();
     if (!q) return true;
     return (
       item.name.toLowerCase().includes(q) ||
       item.category.toLowerCase().includes(q) ||
-      item.uses.toLowerCase().includes(q) ||
-      item.brands.toLowerCase().includes(q)
+      item.uses.toLowerCase().includes(q)
     );
   });
 
@@ -31,7 +29,7 @@ export default function App() {
       {/* Hero Landing with Centered Search */}
       <main className="main">
         <section className="search-box">
-          <h2 className="title">Search General Medicines</h2>
+          <h2 className="title">Search Medicines here ! </h2>
           <p className="subtitle">Find usage, dosage, side effects, and related medicines</p>
 
           <div className="input-wrap">
@@ -47,7 +45,6 @@ export default function App() {
             )}
           </div>
 
-          {/* Quick Click Suggestions */}
           <div className="quick-tags">
             <span>Quick search:</span>
             {QUICK_SEARCHES.map((item) => (
@@ -62,7 +59,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Results Info */}
         <div className="results-bar">
           <span>Found <strong>{filtered.length}</strong> result{filtered.length !== 1 ? 's' : ''}</span>
           {search && (
@@ -70,7 +66,6 @@ export default function App() {
           )}
         </div>
 
-        {/* Cards Grid */}
         {filtered.length > 0 ? (
           <div className="grid">
             {filtered.map((item) => (
@@ -80,7 +75,6 @@ export default function App() {
                   <span className="pill">{item.category}</span>
                 </div>
                 <p className="card-uses"><strong>Uses:</strong> {item.uses}</p>
-                <p className="card-brands"><strong>Brands:</strong> {item.brands}</p>
                 <button className="card-btn">View Details →</button>
               </div>
             ))}
@@ -93,7 +87,6 @@ export default function App() {
         )}
       </main>
 
-      {/* Medicine Details Modal */}
       {selected && (
         <div className="modal-overlay" onClick={() => setSelected(null)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -121,12 +114,8 @@ export default function App() {
                 <p>{selected.sideEffects}</p>
               </div>
 
-              <div className="info-row">
-                <strong>Common Brands:</strong>
-                <p>{selected.brands}</p>
-              </div>
 
-              {/* Related Medicines */}
+
               <div className="info-row">
                 <strong>Related Medicines:</strong>
                 <div className="related-list">
@@ -139,7 +128,7 @@ export default function App() {
                         if (next) setSelected(next);
                       }}
                     >
-                      {relName} →
+                      {relName} ›
                     </button>
                   ))}
                 </div>
@@ -153,7 +142,6 @@ export default function App() {
         </div>
       )}
 
-      {/* Footer */}
       <footer className="footer">
         <p>MediSearch &bull; Educational medicine guide for quick reference.</p>
       </footer>
