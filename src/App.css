@@ -97,17 +97,6 @@
   cursor: pointer;
 }
 
-/* Quick Tags */
-.quick-tags {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 13px;
-  color: #64748b;
-}
-
 .tag-btn {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -118,7 +107,7 @@
   color: #334155;
 }
 
-.tag-btn:hover, .tag-btn.active {
+.tag-btn:hover {
   background: #e0f2fe;
   border-color: #7dd3fc;
   color: #0369a1;

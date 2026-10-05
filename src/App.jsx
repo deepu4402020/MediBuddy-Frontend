@@ -15,18 +15,19 @@ export default function App() {
       item.name.toLowerCase().includes(q) ||
       item.category.toLowerCase().includes(q) ||
       item.uses.toLowerCase().includes(q)
+
     );
   });
 
   return (
     <div className="app">
-      {/* Top Header */}
+
       <header className="header">
         <h1 className="logo" onClick={() => setSearch('')}>MediSearch</h1>
         <span className="count-badge">{medicinesData.length} Medicines</span>
       </header>
 
-      {/* Hero Landing with Centered Search */}
+
       <main className="main">
         <section className="search-box">
           <h2 className="title">Search Medicines here ! </h2>
