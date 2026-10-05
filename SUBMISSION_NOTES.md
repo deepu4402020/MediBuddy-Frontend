@@ -1,20 +1,22 @@
 # MediSearch - MediBuddy Machine Coding Submission
 
-A clean, responsive single-page web application for searching everyday medicines and viewing comprehensive healthcare data.
+A clean, beginner-friendly single-page web app built with React & Vite to search common medicines and view essential medical details and related drugs.
 
-## Features Built
-- **Central Landing Search Bar**: Prominent search bar with instant multi-field matching (brand names, generic salt, medical uses, category).
-- **Popular Suggestion Chips**: Quick-click pills for general medicines: Paracetamol, Sunscreen, Salicylic Acid, ORS, Niacinamide, Cetirizine, Ibuprofen, Omeprazole.
-- **Category Filter Tabs**: Horizontally scrollable category pills (Pain Relief, Skincare, Dermatology, Hydration, Allergy, Acidity, Antibiotics, Vitamins).
-- **Interactive Medicine Cards**: Clean cards with OTC/Rx badges, generic salt, top uses tags, and brand previews.
-- **Detailed Modal with Related Medicine Navigation**: Full view with dosage guidelines, mechanism of action, side effects, precautions/warnings alert box, and clickable related medicine pills.
-- **Keyboard Shortcuts**: Press `/` to focus the search bar from anywhere; press `Esc` to close the modal.
-- **Zero Heavy External Dependencies**: Built with React + Vanilla CSS variables for a 297ms build time and 77 kB production bundle.
+## Key Highlights
+- **Total Code Size**: ~640 words total across `App.jsx` and `medicines.json` (easy to read, explain, and maintain in a 1-hour coding round).
+- **Zero Heavy Dependencies**: Pure React with standard CSS, building in ~220ms.
+- **Centered Search Landing**: Immediate search input with quick buttons for: Paracetamol, Sunscreen, Salicylic Acid, ORS, Niacinamide, Cetirizine.
+- **Dynamic Multi-Field Filter**: Matches medicine name, category, medical uses, or brand names instantly.
+- **Details Modal with Related Medicines**: Shows recommended dosage, side effects, brands, and clickable buttons to navigate directly to related medicines.
 
-## Questions You May Be Asked by Mentors
-See full details in the project notes. Key points:
-1. **Component structuring**: Separation of concerns (`App.jsx` handles state/filtering, UI components are modular and declarative).
-2. **Data structure**: Normalized array of objects with unique slug IDs and foreign-key relational references for related medicines.
-3. **State flow**: Unidirectional data flow with debounced search input (150ms) and `useMemo` for derived filtered data.
-4. **Optimizations**: Debouncing, `useMemo` caching, modal scroll lock cleanup, zero UI library bloat.
-5. **With another hour**: Typo-tolerant fuzzy search, URL search query parameter synchronization, and side-by-side drug comparison.
+## Interview Questions & Answers
+1. **Why this component structure?**
+   - Kept state centralized in `App.jsx` (`search` and `selected` medicine) to keep the code clear, concise, and easy to trace during an interview without unnecessary prop drilling.
+2. **What data structure for results?**
+   - Array of objects in `medicines.json`. Native `.filter()` gives instant linear search without external search dependencies. Related medicines are referenced by string names.
+3. **How does state flow?**
+   - Unidirectional: `search` updates on typing/clicking quick pills -> `filtered` array recalculates -> Cards render. Clicking a card sets `selected`, which opens the modal.
+4. **Optimizations applied?**
+   - Lightweight bundle, single-pass filtering, no unnecessary re-renders or heavy UI libraries.
+5. **What would you do with another hour?**
+   - Add debouncing, URL search params (`?q=...`), fuzzy typo matching, and drug-to-drug comparison.
